@@ -15,7 +15,11 @@ jobs:
       - name: Output event data
         run: echo "${{ toJSON(github.event) }}"
       - name: Get code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
+      - name: Install NodeJS
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
       - name: Install dependencies
         run: npm ci
       - name: Test code
