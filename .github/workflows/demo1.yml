@@ -9,8 +9,11 @@ jobs:
       - name: Output event data
         run: echo "${{ toJSON(github.event) }}"
       - name: Get code
-        uses: actions/checkout@v3
-      - name: Install dependencies
+        uses: actions/checkout@v6
+      - name: Install NodeJS
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
         run: npm ci
       - name: Test code
         run: npm run test
